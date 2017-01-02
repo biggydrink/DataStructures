@@ -13,7 +13,7 @@ public class Queue {
     // Adds elements by enqueue, places them at the tail
     // Removes elements by dequeue, removes from the head
     // Queue basics: http://www.studytonight.com/data-structures/queue-data-structure
-    Queue(int size) {
+    public Queue(int size) {
         q = new char[size];
         tail = head = 0;
         this.size = size;
@@ -42,7 +42,7 @@ public class Queue {
         q[tail++] = ch;
     }
 
-    // Gets current char off the bottom of the queue
+    // Gets current char off the end of the queue
     public char dequeue() {
         if (head == tail) {
             System.out.println("Nothing in queue");
