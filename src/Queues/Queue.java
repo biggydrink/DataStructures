@@ -5,7 +5,7 @@ package Queues;
  */
 public class Queue {
 
-    private char q[];
+    private int[] q;
     private int tail, head;
     private int size;
 
@@ -14,27 +14,21 @@ public class Queue {
     // Removes elements by dequeue, removes from the head
     // Queue basics: http://www.studytonight.com/data-structures/queue-data-structure
     public Queue(int size) {
-        q = new char[size];
+        q = new int[size];
         tail = head = 0;
         this.size = size;
     }
-
 
     public int getMaxSize() {
         return size;
     }
 
-    public int getCurrentSize() {
-        // TODO - finish this method
-        return -1;
-    }
-
-    public char peek() {
+    public int peek() {
         return q[head];
     }
 
-    // Puts a char into the queue
-    public void enqueue(char ch) {
+    // Puts an int into the queue
+    public void enqueue(int ch) {
         if (tail == q.length) {
             System.out.println("Queue is full");
             return;
@@ -42,12 +36,26 @@ public class Queue {
         q[tail++] = ch;
     }
 
-    // Gets current char off the end of the queue
-    public char dequeue() {
+    // Gets current int off the end of the queue
+    public int dequeue() {
         if (head == tail) {
             System.out.println("Nothing in queue");
-            return (char) -1;
+            return -1;
         }
         return q[head++];
+    }
+
+    // Returns a printable string of the array
+    public String printQueue() {
+        String arrayStr = "";
+
+        for (int i = 0; i < size; ++i) {
+            arrayStr += q[i];
+            if (i != size -1) {
+                arrayStr += ",";
+            }
+        }
+
+        return arrayStr;
     }
 }
