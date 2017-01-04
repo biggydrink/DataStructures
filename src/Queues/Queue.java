@@ -73,4 +73,18 @@ public class Queue {
             }
         }
     }
+
+    public void insertionSort() {
+        int key;
+
+        for (int i = 1; i < size; ++i) {
+            key = q[i];
+            int j = i -1;
+            while (j >= 0 && key < q[j]) {
+                q[j+1] = q[j]; // move higher number further in queue
+                j--;
+            }
+            q[j+1] = key;
+        }
+    }
 }

@@ -23,9 +23,9 @@ public class Manager {
             q.enqueue(rand.nextInt(100));
         }
 
-        System.out.println("Bubble sort");
+        System.out.println("Insertion sort");
         System.out.println("Before sort: \n" + q.printQueue());
-        q.bubbleSort();
+        q.insertionSort();
         System.out.println("After sort: \n" + q.printQueue());
 
     }
