@@ -28,12 +28,12 @@ public class Queue {
     }
 
     // Puts an int into the queue
-    public void enqueue(int ch) {
+    public void enqueue(int num) {
         if (tail == q.length) {
             System.out.println("Queue is full");
             return;
         }
-        q[tail++] = ch;
+        q[tail++] = num;
     }
 
     // Gets current int off the end of the queue
@@ -57,5 +57,20 @@ public class Queue {
         }
 
         return arrayStr;
+    }
+
+    public void bubbleSort() {
+        int temp;
+
+        for (int i = 0; i < size; ++i) {
+            for (int j = 0; j < size - 1; ++j) {
+                if (q[j] > q[j+1]) { // if out of order
+                    // swap places
+                    temp = q[j];
+                    q[j] = q[j+1];
+                    q[j+1] = temp;
+                }
+            }
+        }
     }
 }
