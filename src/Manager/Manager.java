@@ -23,9 +23,9 @@ public class Manager {
             q.enqueue(rand.nextInt(100));
         }
 
-        System.out.println("Insertion sort");
+        System.out.println("Selection sort");
         System.out.println("Before sort: \n" + q.printQueue());
-        q.insertionSort();
+        q.selectionSort();
         System.out.println("After sort: \n" + q.printQueue());
 
     }

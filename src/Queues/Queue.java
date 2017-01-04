@@ -79,12 +79,35 @@ public class Queue {
 
         for (int i = 1; i < size; ++i) {
             key = q[i];
-            int j = i -1;
+            int j = i-1;
+
             while (j >= 0 && key < q[j]) {
                 q[j+1] = q[j]; // move higher number further in queue
                 j--;
             }
+
             q[j+1] = key;
         }
     }
+
+    public void selectionSort() {
+        int placement;
+
+        for (int i = 0; i < size; ++i) {
+            int min = q[i];
+            placement = i;
+            // Go through array, find i-th smallest element
+            for (int j = i; j < size; ++j) {
+                if (q[j] < min) {
+                    min = q[j];
+                    placement = j;
+                }
+            }
+            // swap i-th smallest element (min) in i-th smallest place (q[i])
+            q[placement] = q[i];
+            q[i] = min;
+        }
+    }
+
+
 }
