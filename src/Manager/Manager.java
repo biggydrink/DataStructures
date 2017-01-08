@@ -19,13 +19,25 @@ public class Manager {
         Queue q = new Queue(10);
         Random rand = new Random();
 
+        /*
         for (int i = 0; i < q.getMaxSize(); ++i) {
             q.enqueue(rand.nextInt(100));
         }
+        */
+        q.enqueue(99);
+        q.enqueue(58);
+        q.enqueue(62);
+        q.enqueue(9);
+        q.enqueue(60);
+        q.enqueue(3);
+        q.enqueue(94);
+        q.enqueue(58);
+        q.enqueue(19);
+        q.enqueue(52);
 
-        System.out.println("Selection sort");
+        System.out.println("Quick sort");
         System.out.println("Before sort: \n" + q.printQueue());
-        q.selectionSort();
+        q.quickSort(q.getArray(),0,q.getMaxSize()-1);
         System.out.println("After sort: \n" + q.printQueue());
 
     }

@@ -23,6 +23,10 @@ public class Queue {
         return size;
     }
 
+    public int[] getArray() {
+        return q;
+    }
+
     public int peek() {
         return q[head];
     }
@@ -96,7 +100,7 @@ public class Queue {
         for (int i = 0; i < size; ++i) {
             int min = q[i];
             placement = i;
-            // Go through array, find i-th smallest element
+            // Go through array (starting at i), find i-th smallest element
             for (int j = i; j < size; ++j) {
                 if (q[j] < min) {
                     min = q[j];
@@ -107,6 +111,44 @@ public class Queue {
             q[placement] = q[i];
             q[i] = min;
         }
+    }
+
+    public void quickSort(int[] list, int left, int right) {
+
+        if (left < right) {
+
+            int newPivot = partition(list, left, right);
+            quickSort(list, left, newPivot);
+            quickSort(list, newPivot + 1, right);
+
+        }
+    }
+
+    private int partition(int[] list, int left, int right) {
+
+        int newLeft, newRight, pivot, temp;
+
+        pivot = list[left];
+        newLeft = left;
+        newRight = right;
+
+        while (true) {
+            while (list[newLeft] < pivot && list[newLeft] != pivot) {
+                newLeft++;
+            }
+            while (list[newRight] > pivot && list[newRight] != pivot) {
+                newRight--;
+            }
+            if (newLeft < newRight) {
+                temp = list[newLeft];
+                list[newLeft] = list[newRight];
+                list[newRight] = temp;
+            } else {
+                return newRight;
+            }
+        }
+
+
     }
 
 
