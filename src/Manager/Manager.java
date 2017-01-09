@@ -38,9 +38,9 @@ public class Manager {
         */
 
         System.out.println("Quick sort");
-        System.out.println("Before sort: \n" + q.printQueue());
+        System.out.println("Before sort: " + q);
         q.quickSort();
-        System.out.println("After sort: \n" + q.printQueue());
+        System.out.println("After sort: " + q);
 
     }
 
@@ -49,7 +49,7 @@ public class Manager {
         for (int i = 1; i < 11; ++i) {
             q.enqueue(i);
         }
-        System.out.println(q.printQueue());
+        System.out.println(q);
     }
 
 
