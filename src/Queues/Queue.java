@@ -26,6 +26,14 @@ public class Queue {
     public int peek() {
         return q[head];
     }
+    /** Returns head value if index is out of bounds */
+    public int peek(int index) {
+        if (index < 0 || index > size) {
+            return q[head];
+        } else {
+            return q[index];
+        }
+    }
 
     // Puts an int into the queue
     public void enqueue(int num) {
