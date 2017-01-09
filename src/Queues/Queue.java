@@ -23,10 +23,6 @@ public class Queue {
         return size;
     }
 
-    public int[] getArray() {
-        return q;
-    }
-
     public int peek() {
         return q[head];
     }
@@ -113,42 +109,36 @@ public class Queue {
         }
     }
 
-    public void quickSort(int[] list, int left, int right) {
-
-        if (left < right) {
-
-            int newPivot = partition(list, left, right);
-            quickSort(list, left, newPivot);
-            quickSort(list, newPivot + 1, right);
-
-        }
+    public void quickSort() {
+        qs(q,0,size-1);
     }
 
-    private int partition(int[] list, int left, int right) {
+    private void qs(int[] list, int left, int right) {
 
-        int newLeft, newRight, pivot, temp;
+        int newLeft, newRight;
+        int pivot, temp;
 
-        pivot = list[left];
         newLeft = left;
         newRight = right;
+        pivot = list[(left + right)/2];
 
-        while (true) {
-            while (list[newLeft] < pivot && list[newLeft] != pivot) {
-                newLeft++;
-            }
-            while (list[newRight] > pivot && list[newRight] != pivot) {
-                newRight--;
-            }
-            if (newLeft < newRight) {
+        do {
+            //scroll through list until list[newleft] is higher than pivot, or you reach the end of the list
+            while ((list[newLeft] < pivot) && (newLeft < right)) newLeft++;
+            //scroll through list from right until list[newright] is less than pivot, or you reach the end of the list
+            while ((list[newRight] > pivot) && (newRight > left)) newRight--;
+
+            //swap list[newLeft] and list[newRight], making list[newLeft] now lower than pivot, and list[newRight] higher than pivot
+            if (newLeft <= newRight) {
                 temp = list[newLeft];
                 list[newLeft] = list[newRight];
                 list[newRight] = temp;
-            } else {
-                return newRight;
+                newLeft++; newRight--;
             }
-        }
+        } while (newLeft <= newRight);
 
-
+        if (left < newRight) qs(list,left,newRight);
+        if (newLeft < right) qs(list,newLeft,right);
     }
 
 
