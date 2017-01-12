@@ -138,12 +138,12 @@ public class Queue {
         do {
             System.out.printf("Position loop run #%d\n",counter);
             System.out.println("Current queue: " + this);
-            //scroll through list until list[newleft] is higher than pivot, or you reach the end of the list
+            // scroll through list until list[newleft] is higher than pivot, or you reach the end of the list
             while ((list[newLeft] < pivot) && (newLeft < right)) newLeft++;
-            //scroll through list from right until list[newright] is less than pivot, or you reach the end of the list
+            // scroll through list from right until list[newright] is less than pivot, or you reach the end of the list
             while ((list[newRight] > pivot) && (newRight > left)) newRight--;
 
-            //swap list[newLeft] and list[newRight], making list[newLeft] now lower than pivot, and list[newRight] higher than pivot
+            // swap list[newLeft] and list[newRight], making list[newLeft] now lower than pivot, and list[newRight] higher than pivot
             if (newLeft <= newRight) {
                 System.out.printf("Swapping indexes %d (%d) and %d, (%d)\n",newLeft,list[newLeft],newRight,list[newRight]);
                 temp = list[newLeft];
