@@ -130,14 +130,14 @@ public class Queue {
         newRight = right;
         pivot = list[(left + right)/2];
 
-        System.out.println("");
-        System.out.printf("New qs(%d,%d)\n",left,right);
-        System.out.println("Current queue: " + this);
+//        System.out.println("");
+//        System.out.printf("New qs(%d,%d)\n",left,right);
+//        System.out.println("Current queue: " + this);
         int counter = 0;
 
         do {
-            System.out.printf("Position loop run #%d\n",counter);
-            System.out.println("Current queue: " + this);
+//            System.out.printf("Position loop run #%d\n",counter);
+//            System.out.println("Current queue: " + this);
             // scroll through list until list[newleft] is higher than pivot, or you reach the end of the list
             while ((list[newLeft] < pivot) && (newLeft < right)) newLeft++;
             // scroll through list from right until list[newright] is less than pivot, or you reach the end of the list
@@ -145,7 +145,7 @@ public class Queue {
 
             // swap list[newLeft] and list[newRight], making list[newLeft] now lower than pivot, and list[newRight] higher than pivot
             if (newLeft <= newRight) {
-                System.out.printf("Swapping indexes %d (%d) and %d, (%d)\n",newLeft,list[newLeft],newRight,list[newRight]);
+//                System.out.printf("Swapping indexes %d (%d) and %d, (%d)\n",newLeft,list[newLeft],newRight,list[newRight]);
                 temp = list[newLeft];
                 list[newLeft] = list[newRight];
                 list[newRight] = temp;
